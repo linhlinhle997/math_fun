@@ -10,17 +10,17 @@ class Vectors:
     
     def add(self) -> Vector:
         """Add corresponding elements"""
-        self._check_vector_lenghts()
+        self._check_vector_length()
         return [v_i + w_i for v_i, w_i in zip(self.v, self.w)]
 
     def subtract(self) -> Vector:
         """Subtract corresponding elements"""
-        self._check_vector_lenghts()
+        self._check_vector_length()
         return [v_i - w_i for v_i, w_i in zip(self.v, self.w)]
     
     def multi(self) -> Vector:
         """Subtract corresponding elements"""
-        self._check_vector_lenghts()
+        self._check_vector_length()
         return [v_i * w_i for v_i, w_i in zip(self.v, self.w)]
     
     def dot(self, subtract: Vector = None) -> float:
@@ -28,7 +28,7 @@ class Vectors:
         v = subtract if subtract is not None else self.v
         w = subtract if subtract is not None else self.w
         print(v, w)
-        self._check_vector_lenghts(v, w)
+        self._check_vector_length(v, w)
         return sum(v_i * w_i for v_i, w_i in zip(v, w))
     
     def magnitude(self) -> float:
@@ -51,8 +51,8 @@ class Vectors:
         v = subtract if subtract is not None else self.v
         return self.dot(v)
 
-    def _check_vector_lenghts(self, v=None, w=None):
+    def _check_vector_length(self, v=None, w=None):
         """Check that vectors have the same length"""
         v = v if v is not None else self.v
         w = w if w is not None else self.w
-        assert len(v) == len(w), "Vectors must be the same lenght"
+        assert len(v) == len(w), "Vectors must be the same length"
